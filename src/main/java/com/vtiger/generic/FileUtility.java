@@ -6,18 +6,24 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class FileUtility {
+	     
+	   /**
+	    * @author usha
+	    * Read the data from Property file
+	    * @param path of property file
+	    * @param Pass key for which you want to read data
+	    * @param key
+	    * @throws IOException
+	    */
 
-        public void readDataFromPropFile() throws IOException {
-		FileInputStream fis= new FileInputStream("../ushaautomation/commondata.properties");
+        public String readDataFromPropFile(String path,String key) throws IOException {
+        	
+		FileInputStream fis= new FileInputStream(path);
 		Properties prop =new Properties();
 		prop.load(fis);
-		
-		String un=prop.getProperty("username");
-		String password= prop.getProperty("password");
-		String url=prop.getProperty("url");
-		String browser=prop.getProperty("browser");
-		
-
+		String value=prop.getProperty(key);
+        return value;
+        
 	}
 }
 
